@@ -1,0 +1,219 @@
+/* ========================================
+   GLOBAL RESET
+   Browsers add default margins/padding. 
+   This zeroes them out so we start clean.
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* The * is a "universal selector" — applies to every element */
+/* box-sizing: border-box makes sizing predictable (more on this later) */
+
+
+/* ========================================
+   BASE TYPOGRAPHY & BODY
+   ======================================== */
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  /* Serif fonts feel traditional/trustworthy — fits a family farm */
+
+  line-height: 1.6;
+  /* Spacing between lines. 1.6 is easy to read */
+
+  color: #3a2830;
+  /* Warm dark plum-brown — softer than pure black, fits the pink palette */
+
+  background-color: #fff8fa;
+  /* White with the faintest blush pink */
+
+  max-width: 1100px;
+  /* Prevents text from stretching too wide on big monitors */
+
+  margin: 0 auto;
+  /* Centers the content on the page */
+}
+
+
+/* ========================================
+   HEADER
+   ======================================== */
+header {
+  background-color: #c87490;
+  /* Dusty rose — warm, welcoming, clearly on-brand */
+
+  color: white;
+  padding: 2rem;
+  /* Space inside the header */
+
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+nav {
+  margin-top: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  /* Removes the bullet points */
+  
+  display: flex;
+  /* Puts list items in a horizontal row instead of stacked */
+  
+  justify-content: center;
+  /* Centers the nav items */
+  
+  gap: 2rem;
+  /* Space between each nav link */
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  /* Removes the default underline on links */
+  
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  /* Smooth hover effect */
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  /* Slight white highlight when hovering */
+}
+
+
+/* ========================================
+   MAIN CONTENT
+   ======================================== */
+main {
+  padding: 3rem 2rem;
+}
+
+main section {
+  margin-bottom: 3rem;
+}
+
+main h2 {
+  color: #9e4f62;
+  /* Deep rose — strong enough to anchor a heading, stays in the pink family */
+
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #f5c6d3;
+  /* Soft blush pink underline */
+
+  padding-bottom: 0.5rem;
+}
+
+main h3 {
+  color: #9e4f62;
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+main p {
+  margin-bottom: 1rem;
+}
+
+main ul {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+main a {
+  color: #9e4f62;
+  font-weight: bold;
+}
+
+
+/* ========================================
+   CONTACT FORM
+   ======================================== */
+form {
+  max-width: 500px;
+  margin-top: 1rem;
+}
+
+form label {
+  display: block;
+  /* Makes labels appear on their own line above the input */
+  
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  /* Uses the same font as the body */
+  
+  font-size: 1rem;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #c87490;
+  /* Highlights the field in dusty rose when user clicks it */
+}
+
+form button {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  background-color: #9e4f62;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #7a3040;
+  /* Deeper plum on hover */
+}
+
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+  background-color: #6b2d42;
+  /* Deep plum — grounded, professional, ties back to the rose header */
+
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: #f5c6d3;
+  /* Blush pink for footer links — readable against dark plum */
+}
