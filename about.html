@@ -1,54 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>About Us - Sweet Dairy Family Farm</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet the family behind Sweet Dairy Family Farm in McDonough, GA — our story, our values, and the people who care for our animals.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <title>About Us — Sweet Dairy Family Farm</title>
 </head>
+
 <body>
-  <header>
-    <h1>Sweet Dairy Family Farm</h1>
-    <p>Free-range eggs and fresh milk from our family to yours</p>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="products.html">Our Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="#f9edf1" stroke="#c87490" stroke-width="2"/>
+          <path d="M24 9c5.5 6.8 9.5 12 9.5 18a9.5 9.5 0 0 1-19 0c0-6 4-11.2 9.5-18z" fill="#c87490"/>
+          <path d="M20 26a4 4 0 0 0 4 4" fill="none" stroke="#fdf8f5" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Sweet Dairy<small>Family Farm</small></span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">&#9776;</button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" aria-current="page">About Us</a></li>
+          <li><a href="products.html">Our Products</a></li>
+          <li class="nav-cta"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Who We Are</h2>
-      <p>Sweet Dairy Family Farm has been serving the McDonough, GA community since 2024 with a commitment to quality, sustainability, and animal welfare.</p>
+  <main id="main">
+
+    <!-- ============ PAGE BANNER ============ -->
+    <section class="page-hero hero-about">
+      <div class="hero-content">
+        <span class="eyebrow">About Us</span>
+        <h1>The family behind the farm</h1>
+        <p>Serving the McDonough community since 2024.</p>
+      </div>
     </section>
 
-    <section>
-      <h2>Meet Kimberly!</h2>
-      <p>
-        Kimberly is the heart and soul of Sweet Dairy Family Farm. With a background in sustainable agriculture and a passion for animal welfare, she oversees the day-to-day care of our chickens and cows. Her dedication to ethical farming practices ensures that our animals are happy and healthy, which in turn produces the best quality eggs and milk for our customers.
-      </p>
+    <!-- ============ WHO WE ARE ============ -->
+    <section class="section">
+      <div class="container split reveal">
+        <img src="images/hens.jpg" alt="A flock of free-range hens foraging on the grass" loading="lazy">
+        <div>
+          <span class="eyebrow">Who We Are</span>
+          <h2 class="section-title">Small farm, big commitment</h2>
+          <p class="section-intro">
+            Sweet Dairy Family Farm has been serving the McDonough, GA community
+            since 2024 with a commitment to quality, sustainability, and animal
+            welfare. We're not a factory — we're a family, and it shows in
+            everything we produce.
+          </p>
+          <ul class="checklist">
+            <li>Every animal is cared for by the people who own the farm</li>
+            <li>Eco-friendly practices that protect our land</li>
+            <li>Fresh products available right at the farm</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Our Values</h2>
-      <p>At Sweet Dairy Family Farm, we believe in:</p>
-      <ul>
-        <li><strong>Quality:</strong> We are committed to providing the freshest, most delicious eggs and milk possible.</li>
-        <li><strong>Sustainability:</strong> We use eco-friendly farming practices to minimize our impact on the environment.</li>
-        <li><strong>Community:</strong> We love being a part of the McDonough community and strive to give back whenever we can.</li>
-      </ul>
+    <!-- ============ MEET KIMBERLY ============ -->
+    <section class="section section-tint">
+      <div class="container split flip reveal">
+        <img src="images/farmer.jpg" alt="A smiling farmer holding a speckled hen on her shoulder" loading="lazy">
+        <div>
+          <span class="eyebrow">The Heart of the Farm</span>
+          <h2 class="section-title">Meet Kimberly!</h2>
+          <p class="section-intro">
+            Kimberly is the heart and soul of Sweet Dairy Family Farm. With a
+            background in sustainable agriculture and a passion for animal
+            welfare, she oversees the day-to-day care of our chickens and cows.
+          </p>
+          <p class="section-intro">
+            Her dedication to ethical farming practices ensures that our animals
+            are happy and healthy — which in turn produces the best quality eggs
+            and milk for our customers.
+          </p>
+          <a class="btn btn-ghost" href="contact.html">Say Hello</a>
+        </div>
+      </div>
     </section>
+
+    <!-- ============ OUR VALUES ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="center reveal">
+          <span class="eyebrow">Our Values</span>
+          <h2 class="section-title">What we believe in</h2>
+          <p class="section-intro">
+            Three simple principles guide every decision we make on the farm.
+          </p>
+        </div>
+        <div class="grid-3">
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <!-- Star icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3l2.7 5.8 6.3.8-4.6 4.3 1.2 6.1L12 17l-5.6 3 1.2-6.1L3 9.6l6.3-.8z"/>
+              </svg>
+            </div>
+            <h3>Quality</h3>
+            <p>
+              We are committed to providing the freshest, most delicious eggs
+              and milk possible — nothing leaves the farm unless we'd serve it
+              at our own table.
+            </p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <!-- Leaf icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M6 21c0-9 4-15 14-17-1 10-6 15-14 15"/>
+                <path d="M6 21c2-5 5-8 9-10"/>
+              </svg>
+            </div>
+            <h3>Sustainability</h3>
+            <p>
+              We use eco-friendly farming practices to minimize our impact on
+              the environment and keep this land productive for generations.
+            </p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <!-- Heart icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21C7 16.5 3 13.2 3 8.9 3 6 5.2 4 7.8 4c1.7 0 3.2.8 4.2 2.2C13 4.8 14.5 4 16.2 4 18.8 4 21 6 21 8.9c0 4.3-4 7.6-9 12.1z"/>
+              </svg>
+            </div>
+            <h3>Community</h3>
+            <p>
+              We love being a part of the McDonough community and strive to
+              give back whenever we can.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CALL TO ACTION ============ -->
+    <section class="cta-strip">
+      <div class="container reveal">
+        <h2>Come say hello</h2>
+        <p>We'd love to show you around the farm and introduce you to the animals.</p>
+        <a class="btn btn-light" href="contact.html">Plan Your Visit</a>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <!-- <footer> = bottom of the page. Contact info, copyright, etc. -->
-    <p>&copy; 2026 Sweet Dairy Family Farm. McDonough, GA.</p>
-    <p>Contact: sweetdairy@example.com</p>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-name">Sweet Dairy<small>Family Farm</small></span>
+          <p>
+            Free-range eggs and fresh milk from our family to yours.
+            Raised with care in McDonough, Georgia.
+          </p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Our Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Get in Touch</h3>
+          <ul>
+            <li><a href="mailto:sweetdairy@example.com">sweetdairy@example.com</a></li>
+            <li><a href="tel:+19125550123">(912) 555-0123</a></li>
+            <li>1234 Farm Road, McDonough, GA 30253</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sweet Dairy Family Farm. McDonough, GA.</p>
+        <p>Photos via <a href="https://commons.wikimedia.org/">Wikimedia Commons</a> &mdash; credits in the README.</p>
+      </div>
+    </div>
   </footer>
-    
+
+  <script src="script.js"></script>
 </body>
+
 </html>

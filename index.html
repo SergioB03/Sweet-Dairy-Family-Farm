@@ -1,80 +1,258 @@
 <!DOCTYPE html>
-<!-- Tells the browser: this is modern HTML5 -->
-
 <html lang="en">
-<!-- The root of every HTML document. lang="en" helps screen readers and search engines -->
 
 <head>
-  <!-- The <head> is metadata ABOUT the page, not visible content -->
-  
   <meta charset="UTF-8">
-  <!-- Character encoding. Lets you use special characters, emojis, accents -->
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Critical for mobile. Makes the page responsive to screen size -->
-  
   <meta name="description" content="Family-owned farm in McDonough, GA offering free-range eggs and fresh cow's milk.">
-  <!-- Shows up in Google search results under the title -->
+
+  <!-- Open Graph tags: control how the site looks when shared on social media.
+       NOTE: og:image must become a full absolute URL (https://yourdomain.com/images/hero.jpg)
+       once the site is deployed — social media scrapers ignore relative paths. -->
+  <meta property="og:title" content="Sweet Dairy Family Farm">
+  <meta property="og:description" content="Free-range eggs and fresh milk from our family to yours. McDonough, GA.">
+  <meta property="og:image" content="images/hero.jpg">
+
+  <!-- Web fonts: Fraunces for headings, Nunito Sans for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
-  
   <title>Sweet Dairy Family Farm — Fresh Eggs & Milk in McDonough, GA</title>
-  <!-- Shows in browser tab and Google results -->
 </head>
 
 <body>
-  <!-- Everything visible goes in <body> -->
+  <!-- Lets keyboard users jump straight past the navigation -->
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header>
-    <h1>Sweet Dairy Family Farm</h1>
-    <p>Free-range eggs and fresh milk from our family to yours</p>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="products.html">Our Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <!-- Inline SVG logo: a milk-drop in brand colors -->
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="#f9edf1" stroke="#c87490" stroke-width="2"/>
+          <path d="M24 9c5.5 6.8 9.5 12 9.5 18a9.5 9.5 0 0 1-19 0c0-6 4-11.2 9.5-18z" fill="#c87490"/>
+          <path d="M20 26a4 4 0 0 0 4 4" fill="none" stroke="#fdf8f5" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Sweet Dairy<small>Family Farm</small></span>
+      </a>
+
+      <!-- Hamburger button, only visible on phones (see CSS) -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">&#9776;</button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html">Our Products</a></li>
+          <li class="nav-cta"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <!-- <main> = the main content of THIS specific page. Only one per page -->
-    
-    <section>
-      <!-- <section> = a thematic grouping of content -->
-      <h2>Welcome to Our Farm</h2>
-      <p>
-        For generations, our family has been raising healthy animals 
-        and producing quality food right here in McDonough, Georgia. 
-        Come meet our chickens, visit our cows, and taste the difference 
-        real farming makes.
-      </p>
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">McDonough, Georgia</span>
+        <h1>Fresh from our pasture to your table</h1>
+        <p>
+          Free-range eggs and creamy whole milk, raised the old-fashioned way
+          by our family — and ready for yours.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="products.html">See Our Products</a>
+          <a class="btn btn-light" href="contact.html">Visit the Farm</a>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>What We Offer</h2>
-      <ul>
-        <li><strong>Free-range eggs</strong> from happy hens</li>
-        <li><strong>Fresh cow's milk</strong> straight from the source</li>
-      </ul>
+    <!-- ============ HIGHLIGHTS STRIP ============ -->
+    <section class="highlights" aria-label="Farm highlights">
+      <div class="container">
+        <span>Free-Range Eggs</span>
+        <span>Fresh Whole Milk</span>
+        <span>Family Owned &amp; Run</span>
+        <span>McDonough, GA</span>
+      </div>
     </section>
 
-    <section>
-      <h2>Why Choose Us</h2>
-      <p>
-        Our animals roam freely on our land. No cages, no shortcuts. 
-        When you buy from us, you know exactly where your food comes from 
-        and who raised it.
-      </p>
+    <!-- ============ WELCOME ============ -->
+    <section class="section">
+      <div class="container split reveal">
+        <!-- loading="lazy" delays download until the image is nearly on screen -->
+        <img src="images/cow.jpg" alt="A curious cow leaning over the farm gate" loading="lazy">
+        <div>
+          <span class="eyebrow">Welcome to Our Farm</span>
+          <h2 class="section-title">A family farm, the way farming used to be</h2>
+          <p class="section-intro">
+            For generations, our family has been raising healthy animals and
+            producing quality food right here in McDonough, Georgia. Come meet
+            our chickens, visit our cows, and taste the difference real farming makes.
+          </p>
+          <ul class="checklist">
+            <li>Our animals roam freely on open pasture — no cages, no shortcuts</li>
+            <li>You know exactly where your food comes from and who raised it</li>
+            <li>Picked up fresh from our self-service farm shop</li>
+          </ul>
+          <a class="btn btn-ghost" href="about.html">Meet the Family</a>
+        </div>
+      </div>
     </section>
+
+    <!-- ============ WHAT WE OFFER ============ -->
+    <section class="section section-tint">
+      <div class="container">
+        <div class="center reveal">
+          <span class="eyebrow">What We Offer</span>
+          <h2 class="section-title">Two things, done right</h2>
+          <p class="section-intro">
+            We keep it simple so we can keep it exceptional — just eggs and milk,
+            straight from animals we know by name.
+          </p>
+        </div>
+        <div class="grid-2">
+          <article class="card reveal">
+            <img src="images/eggs.jpg" alt="A carton of fresh brown eggs" loading="lazy">
+            <div class="card-body">
+              <h3>Free-Range Eggs</h3>
+              <p>
+                Rich, flavorful eggs with deep golden yolks, from happy hens
+                that spend their days on open pasture.
+              </p>
+              <a class="card-link" href="products.html">Learn more &rarr;</a>
+            </div>
+          </article>
+          <article class="card reveal">
+            <img src="images/milk.jpg" alt="A glass of fresh milk with oatmeal cookies" loading="lazy">
+            <div class="card-body">
+              <h3>Fresh Cow's Milk</h3>
+              <p>
+                Creamy whole milk from grass-grazed cows, never given
+                artificial hormones — straight from the source.
+              </p>
+              <a class="card-link" href="products.html">Learn more &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PHOTO BAND ============ -->
+    <section class="band">
+      <div class="container reveal">
+        <h2>No cages. No shortcuts.</h2>
+        <p>
+          When you buy from us, you know exactly where your food comes from
+          and who raised it. That's a promise we make with every carton and every bottle.
+        </p>
+        <a class="btn btn-light" href="about.html">Our Story</a>
+      </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE US ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="center reveal">
+          <span class="eyebrow">Why Choose Us</span>
+          <h2 class="section-title">Raised with care, sold with pride</h2>
+        </div>
+        <div class="grid-3">
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <!-- Sun icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/>
+              </svg>
+            </div>
+            <h3>Truly Free-Range</h3>
+            <p>
+              Our hens and cows live outdoors on open pasture, in the sunshine,
+              the way animals were meant to live.
+            </p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <!-- Leaf icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M6 21c0-9 4-15 14-17-1 10-6 15-14 15"/>
+                <path d="M6 21c2-5 5-8 9-10"/>
+              </svg>
+            </div>
+            <h3>All Natural</h3>
+            <p>
+              Natural grass, no artificial hormones, and eco-friendly practices
+              that keep our land healthy for the next generation.
+            </p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <!-- Heart icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21C7 16.5 3 13.2 3 8.9 3 6 5.2 4 7.8 4c1.7 0 3.2.8 4.2 2.2C13 4.8 14.5 4 16.2 4 18.8 4 21 6 21 8.9c0 4.3-4 7.6-9 12.1z"/>
+              </svg>
+            </div>
+            <h3>Rooted in Community</h3>
+            <p>
+              We love being part of McDonough. Our honor-system farm shop runs
+              on trust — because neighbors deserve it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CALL TO ACTION ============ -->
+    <section class="cta-strip">
+      <div class="container reveal">
+        <h2>Come taste the difference</h2>
+        <p>Stop by our self-service farm shop, or reach out with any questions.</p>
+        <a class="btn btn-light" href="contact.html">Get in Touch</a>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <!-- <footer> = bottom of the page. Contact info, copyright, etc. -->
-    <p>&copy; 2026 Sweet Dairy Family Farm. McDonough, GA.</p>
-    <p>Contact: sweetdairy@example.com</p>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-name">Sweet Dairy<small>Family Farm</small></span>
+          <p>
+            Free-range eggs and fresh milk from our family to yours.
+            Raised with care in McDonough, Georgia.
+          </p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Our Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Get in Touch</h3>
+          <ul>
+            <li><a href="mailto:sweetdairy@example.com">sweetdairy@example.com</a></li>
+            <li><a href="tel:+19125550123">(912) 555-0123</a></li>
+            <li>1234 Farm Road, McDonough, GA 30253</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sweet Dairy Family Farm. McDonough, GA.</p>
+        <p>Photos via <a href="https://commons.wikimedia.org/">Wikimedia Commons</a> &mdash; credits in the README.</p>
+      </div>
+    </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
+
 </html>

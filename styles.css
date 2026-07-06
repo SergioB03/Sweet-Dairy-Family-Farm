@@ -1,219 +1,930 @@
+/* ============================================================
+   SWEET DAIRY FAMILY FARM — STYLESHEET
+   Organized top-to-bottom:
+   1. Design tokens (colors, fonts, spacing)
+   2. Reset & base typography
+   3. Reusable components (buttons, cards, badges)
+   4. Header & navigation
+   5. Hero sections
+   6. Page sections (offers, features, bands, forms...)
+   7. Footer
+   8. Animations & responsive breakpoints
+   ============================================================ */
+
+
 /* ========================================
-   GLOBAL RESET
-   Browsers add default margins/padding. 
-   This zeroes them out so we start clean.
+   1. DESIGN TOKENS
+   Custom properties = variables. Change a
+   color here and it updates site-wide.
+   ======================================== */
+:root {
+  /* Brand palette — warm rose + plum with cream */
+  --cream:      #fdf8f5;   /* warm paper background */
+  --blush:      #f9edf1;   /* soft pink section tint */
+  --rose:       #c87490;   /* brand rose */
+  --rose-deep:  #9e4f62;   /* headings, buttons */
+  --plum:       #5c2639;   /* darkest brand tone — footer, overlays */
+  --butter:     #e5a33d;   /* golden-yolk accent, used sparingly */
+  --ink:        #3a2830;   /* main text — warm near-black */
+  --ink-soft:   #75606a;   /* secondary text */
+  --line:       #eed9e0;   /* subtle borders */
+  --white:      #ffffff;
+
+  /* Typography */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Nunito Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+
+  /* Shape & shadow */
+  --radius: 14px;
+  --shadow-soft: 0 6px 24px rgba(92, 38, 57, 0.08);
+  --shadow-lift: 0 14px 40px rgba(92, 38, 57, 0.16);
+}
+
+
+/* ========================================
+   2. RESET & BASE
    ======================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-/* The * is a "universal selector" — applies to every element */
-/* box-sizing: border-box makes sizing predictable (more on this later) */
 
+html {
+  scroll-behavior: smooth;
+}
 
-/* ========================================
-   BASE TYPOGRAPHY & BODY
-   ======================================== */
 body {
-  font-family: Georgia, 'Times New Roman', serif;
-  /* Serif fonts feel traditional/trustworthy — fits a family farm */
+  font-family: var(--font-body);
+  font-size: 1.0625rem;      /* 17px — slightly roomier than default */
+  line-height: 1.7;
+  color: var(--ink);
+  background-color: var(--cream);
+}
 
-  line-height: 1.6;
-  /* Spacing between lines. 1.6 is easy to read */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--rose-deep);
+}
 
-  color: #3a2830;
-  /* Warm dark plum-brown — softer than pure black, fits the pink palette */
+img {
+  max-width: 100%;
+  display: block;
+}
 
-  background-color: #fff8fa;
-  /* White with the faintest blush pink */
+/* Accessibility: visible focus ring for keyboard users.
+   Two-tone ring: dark outline + white halo, so it stays
+   visible on light sections AND dark photos/footer. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--rose-deep);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.85);
+}
 
-  max-width: 1100px;
-  /* Prevents text from stretching too wide on big monitors */
+/* Skip link — hidden until focused with the keyboard */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--plum);
+  color: var(--white);
+  padding: 0.6rem 1rem;
+  border-radius: 0 0 8px 8px;
+  z-index: 100;
+  transition: top 0.2s;
+}
 
+.skip-link:focus {
+  top: 0;
+}
+
+/* Layout helper: centers content and adds side padding */
+.container {
+  max-width: 1140px;
   margin: 0 auto;
-  /* Centers the content on the page */
+  padding: 0 1.5rem;
 }
 
-
-/* ========================================
-   HEADER
-   ======================================== */
-header {
-  background-color: #c87490;
-  /* Dusty rose — warm, welcoming, clearly on-brand */
-
-  color: white;
-  padding: 2rem;
-  /* Space inside the header */
-
-  text-align: center;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-header p {
-  font-style: italic;
-  font-size: 1.1rem;
-}
-
-
-/* ========================================
-   NAVIGATION
-   ======================================== */
-nav {
-  margin-top: 1.5rem;
-}
-
-nav ul {
-  list-style: none;
-  /* Removes the bullet points */
-  
-  display: flex;
-  /* Puts list items in a horizontal row instead of stacked */
-  
-  justify-content: center;
-  /* Centers the nav items */
-  
-  gap: 2rem;
-  /* Space between each nav link */
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  /* Removes the default underline on links */
-  
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-  /* Smooth hover effect */
-}
-
-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  /* Slight white highlight when hovering */
-}
-
-
-/* ========================================
-   MAIN CONTENT
-   ======================================== */
-main {
-  padding: 3rem 2rem;
-}
-
-main section {
-  margin-bottom: 3rem;
-}
-
-main h2 {
-  color: #9e4f62;
-  /* Deep rose — strong enough to anchor a heading, stays in the pink family */
-
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #f5c6d3;
-  /* Soft blush pink underline */
-
-  padding-bottom: 0.5rem;
-}
-
-main h3 {
-  color: #9e4f62;
-  font-size: 1.4rem;
-  margin-top: 1.5rem;
+/* Small uppercase label that sits above headings */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rose-deep);   /* deep rose — the lighter --rose fails WCAG AA contrast at this size */
   margin-bottom: 0.75rem;
 }
 
-main p {
+.section-title {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   margin-bottom: 1rem;
 }
 
-main ul {
-  margin-left: 2rem;
-  margin-bottom: 1rem;
+.section-intro {
+  max-width: 42rem;
+  color: var(--ink-soft);
+  margin-bottom: 2.5rem;
 }
 
-main a {
-  color: #9e4f62;
-  font-weight: bold;
+/* Centered variant for sections that stack in the middle */
+.center {
+  text-align: center;
+}
+
+.center .section-intro {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
 /* ========================================
-   CONTACT FORM
+   3. REUSABLE COMPONENTS
    ======================================== */
-form {
-  max-width: 500px;
+
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 800;
+  text-decoration: none;
+  padding: 0.85rem 1.9rem;
+  border-radius: 999px;        /* pill shape */
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+
+.btn-primary {
+  background-color: var(--rose-deep);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--plum);
+}
+
+/* Outlined button for use on photos / dark backgrounds */
+.btn-light {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: var(--white);
+  color: var(--white);
+  backdrop-filter: blur(4px);
+}
+
+.btn-light:hover {
+  background-color: var(--white);
+  color: var(--plum);
+}
+
+/* Outlined button for light backgrounds */
+.btn-ghost {
+  border-color: var(--rose-deep);
+  color: var(--rose-deep);
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  background-color: var(--rose-deep);
+  color: var(--white);
+}
+
+/* --- Cards --- */
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;            /* keeps image corners rounded */
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+}
+
+.card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;           /* crops instead of squishing */
+}
+
+.card-body {
+  padding: 1.75rem;
+}
+
+/* Card headings are h2 or h3 depending on the page's outline —
+   they look the same either way */
+.card-body h2,
+.card-body h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.card-body p {
+  color: var(--ink-soft);
+}
+
+.card-link {
+  display: inline-block;
   margin-top: 1rem;
+  font-weight: 800;
+  color: var(--rose-deep);
+  text-decoration: none;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* --- Badges / chips (e.g. payment methods) --- */
+.chip {
+  display: inline-block;
+  background: var(--blush);
+  color: var(--rose-deep);
+  border: 1px solid var(--line);
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  margin: 0.2rem 0.25rem 0.2rem 0;
+}
+
+
+/* ========================================
+   4. HEADER & NAVIGATION
+   Sticky bar that stays visible on scroll.
+   ======================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(253, 248, 245, 0.92);   /* cream with slight see-through */
+  backdrop-filter: blur(10px);              /* frosted-glass effect */
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.5rem;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Brand: logo mark + wordmark */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--plum);
+  line-height: 1.1;
+}
+
+.brand-name small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rose);
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.site-nav a {
+  display: inline-block;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.site-nav a:hover {
+  background-color: var(--blush);
+  color: var(--rose-deep);
+}
+
+/* Highlights the page you are currently on (set via aria-current) */
+.site-nav a[aria-current="page"] {
+  background-color: var(--rose-deep);
+  color: var(--white);
+}
+
+/* Emphasized last nav item — the call-to-action */
+.site-nav .nav-cta a {
+  border: 2px solid var(--rose-deep);
+  color: var(--rose-deep);
+  margin-left: 0.4rem;
+}
+
+.site-nav .nav-cta a:hover,
+.site-nav .nav-cta a[aria-current="page"] {
+  background-color: var(--rose-deep);
+  color: var(--white);
+}
+
+/* Hamburger button — hidden on desktop, shown on mobile */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 2px solid var(--rose-deep);
+  border-radius: 8px;
+  color: var(--rose-deep);
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+}
+
+
+/* ========================================
+   5. HERO SECTIONS
+   ======================================== */
+
+/* Full-height photo hero on the home page */
+.hero {
+  position: relative;
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  /* Dark gradient laid over the photo so white text stays readable */
+  background:
+    linear-gradient(to right, rgba(58, 20, 33, 0.72) 0%, rgba(58, 20, 33, 0.35) 55%, rgba(58, 20, 33, 0.15) 100%),
+    url("images/hero.jpg") center / cover no-repeat;
+}
+
+.hero-content {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+  color: var(--white);
+}
+
+.hero-content .eyebrow {
+  color: #ffd9e4;
+}
+
+.hero-content h1 {
+  color: var(--white);
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  max-width: 15em;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  max-width: 34em;
+  margin-bottom: 2.25rem;
+  color: #fdeef3;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Shorter photo banner used at the top of inner pages */
+.page-hero {
+  position: relative;
+  min-height: 40vh;
+  display: flex;
+  align-items: flex-end;
+  background:
+    linear-gradient(to top, rgba(58, 20, 33, 0.75), rgba(58, 20, 33, 0.25) 65%),
+    var(--page-hero-image, url("images/barn.jpg")) center / cover no-repeat;
+}
+
+.page-hero .hero-content {
+  padding: 4rem 1.5rem 3rem;
+}
+
+.page-hero h1 {
+  color: var(--white);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 0.5rem;
+}
+
+.page-hero p {
+  margin-bottom: 0;
+  font-size: 1.1rem;
+}
+
+/* Each inner page swaps in its own banner photo */
+.page-hero.hero-about    { --page-hero-image: url("images/barn.jpg"); }
+.page-hero.hero-products { --page-hero-image: url("images/hens.jpg"); }
+.page-hero.hero-contact  { --page-hero-image: url("images/cow.jpg"); }
+
+
+/* ========================================
+   6. PAGE SECTIONS
+   ======================================== */
+.section {
+  padding: 5rem 0;
+}
+
+.section-tint {
+  background: var(--blush);
+}
+
+/* --- Highlights strip (under the home hero) --- */
+.highlights {
+  background: var(--plum);
+  color: var(--white);
+}
+
+.highlights .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+  text-align: center;
+}
+
+.highlights span {
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+/* --- Grids of cards / features --- */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* --- Feature (icon + title + text) --- */
+.feature {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.feature-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--blush);
+  color: var(--rose-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+}
+
+.feature-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.feature h2,
+.feature h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature p {
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+
+/* --- Split layout: photo beside text --- */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.split img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lift);
+}
+
+.split .section-intro {
+  margin-bottom: 1.25rem;
+}
+
+/* Reverses photo/text order on alternating sections */
+.split.flip img {
+  order: 2;
+}
+
+/* --- Checklist bullets --- */
+.checklist {
+  list-style: none;
+  margin: 1.25rem 0;
+}
+
+.checklist li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.7rem;
+}
+
+.checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: var(--blush);
+  color: var(--rose-deep);
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Full-width photo band with a message --- */
+.band {
+  position: relative;
+  padding: 7rem 0;
+  background:
+    linear-gradient(rgba(58, 20, 33, 0.65), rgba(58, 20, 33, 0.65)),
+    url("images/barn.jpg") center / cover no-repeat;
+  /* Note: background-attachment: fixed would add a parallax feel,
+     but iOS/iPadOS Safari renders it broken — so we don't use it */
+  color: var(--white);
+  text-align: center;
+}
+
+.band h2 {
+  color: var(--white);
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  max-width: 20em;
+  margin: 0 auto 1rem;
+}
+
+.band p {
+  max-width: 38em;
+  margin: 0 auto 2rem;
+  color: #fdeef3;
+  font-size: 1.15rem;
+}
+
+/* --- Call-to-action strip before the footer --- */
+.cta-strip {
+  background: linear-gradient(120deg, var(--rose-deep), var(--plum));
+  color: var(--white);
+  text-align: center;
+  padding: 4.5rem 0;
+}
+
+.cta-strip h2 {
+  color: var(--white);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 0.75rem;
+}
+
+.cta-strip p {
+  color: #fdd7e2;
+  margin-bottom: 2rem;
+}
+
+/* --- Info panel (shop hours, wholesale, honor system) --- */
+.panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--rose);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: 2rem;
+}
+
+.panel h3 {
+  margin-bottom: 0.5rem;
+}
+
+.panel p {
+  color: var(--ink-soft);
+}
+
+.panel p + p {
+  margin-top: 0.75rem;
+}
+
+/* --- Contact info cards --- */
+.contact-card {
+  text-align: center;
+  padding: 2.25rem 1.5rem;
+}
+
+.contact-card .feature-icon {
+  margin: 0 auto 1.1rem;
+}
+
+.contact-card a {
+  color: var(--rose-deep);
+  font-weight: 800;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+/* --- Contact form --- */
+.form-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: 2.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
 }
 
 form label {
   display: block;
-  /* Makes labels appear on their own line above the input */
-  
-  margin-top: 1rem;
-  margin-bottom: 0.25rem;
-  font-weight: bold;
+  margin-top: 1.25rem;
+  margin-bottom: 0.35rem;
+  font-weight: 800;
+  font-size: 0.95rem;
 }
 
 form input,
 form textarea {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  background: var(--cream);
   font-family: inherit;
-  /* Uses the same font as the body */
-  
   font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 form input:focus,
 form textarea:focus {
   outline: none;
-  border-color: #c87490;
-  /* Highlights the field in dusty rose when user clicks it */
+  border-color: var(--rose);
+  box-shadow: 0 0 0 4px rgba(200, 116, 144, 0.18);
+  background: var(--white);
 }
 
-form button {
+.form-note {
   margin-top: 1rem;
-  padding: 0.75rem 2rem;
-  background-color: #9e4f62;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
 }
 
-form button:hover {
-  background-color: #7a3040;
-  /* Deeper plum on hover */
+/* --- Embedded map --- */
+.map-frame {
+  width: 100%;
+  height: 380px;
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
 }
 
 
 /* ========================================
-   FOOTER
+   7. FOOTER
    ======================================== */
-footer {
-  background-color: #6b2d42;
-  /* Deep plum — grounded, professional, ties back to the rose header */
-
-  color: white;
-  text-align: center;
-  padding: 2rem;
-  margin-top: 2rem;
+.site-footer {
+  background: var(--plum);
+  color: #f3dbe3;
 }
 
-footer a {
-  color: #f5c6d3;
-  /* Blush pink for footer links — readable against dark plum */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.4fr;
+  gap: 3rem;
+  padding: 4rem 0 3rem;
+}
+
+.site-footer h3 {
+  color: var(--white);
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.footer-brand .brand-name {
+  color: var(--white);
+}
+
+.footer-brand p {
+  margin-top: 1rem;
+  max-width: 30em;
+  font-size: 0.98rem;
+}
+
+.site-footer ul {
+  list-style: none;
+}
+
+.site-footer li {
+  margin-bottom: 0.6rem;
+}
+
+.site-footer a {
+  color: #f7c9d8;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1.4rem 0;
+  font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+
+/* ========================================
+   8. ANIMATIONS & RESPONSIVE
+   ======================================== */
+
+/* Elements with .reveal start invisible and slide in
+   when they scroll into view (handled by script.js).
+   The html.js prefix means: only hide things when JavaScript
+   is actually running — no JS, no hidden content. */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+html.js .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect users who turn off animations in their OS settings.
+   Selectors must match (or beat) the ones above, or they lose
+   the specificity contest and the animations still run. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.js .reveal,
+  html.js .reveal.visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .btn:hover,
+  .card:hover {
+    transform: none;
+  }
+}
+
+/* --- Tablet --- */
+@media (max-width: 900px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .split.flip img {
+    order: 0;             /* photo back on top when stacked */
+  }
+
+  .split img {
+    height: 320px;
+  }
+
+  .highlights .container {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 0.6rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Stack Name/Email early — side by side they get too narrow
+     once the whole form shares the row with the map */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Phone --- */
+@media (max-width: 720px) {
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 70vh;
+  }
+
+  /* Mobile navigation: hamburger toggles a dropdown */
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    display: none;        /* hidden until the button is tapped */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow-lift);
+  }
+
+  .site-nav.open {
+    display: block;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.75rem 1rem 1rem;
+  }
+
+  .site-nav a {
+    display: block;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+  }
+
+  .site-nav .nav-cta a {
+    margin-left: 0;
+    margin-top: 0.4rem;
+    text-align: center;
+  }
 }

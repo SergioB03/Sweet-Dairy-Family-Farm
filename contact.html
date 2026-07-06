@@ -1,63 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Contact Us - Sweet Dairy Family Farm</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Sweet Dairy Family Farm in McDonough, GA — visit the farm shop, ask about wholesale, or just say hello.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <title>Contact Us — Sweet Dairy Family Farm</title>
 </head>
+
 <body>
-  <header>
-    <h1>Sweet Dairy Family Farm</h1>
-    <p>Free-range eggs and fresh milk from our family to yours</p>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="products.html">Our Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="#f9edf1" stroke="#c87490" stroke-width="2"/>
+          <path d="M24 9c5.5 6.8 9.5 12 9.5 18a9.5 9.5 0 0 1-19 0c0-6 4-11.2 9.5-18z" fill="#c87490"/>
+          <path d="M20 26a4 4 0 0 0 4 4" fill="none" stroke="#fdf8f5" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Sweet Dairy<small>Family Farm</small></span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">&#9776;</button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html">Our Products</a></li>
+          <li class="nav-cta"><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <!-- <main> = the main content of THIS specific page. Only one per page -->
-    
-    <section>
-      <!-- <section> = a thematic grouping of content -->
-      <h2>How to Reach Us</h2>
-        <p>
-            We would love to hear from you! Whether you have questions about our products, want to place a wholesale order, or just want to say hello, there are several ways to get in touch with us.
-        </p>
-      <h3>Our Contact Information</h3>
-      <ul>
-        <li><strong>Email:</strong> <a href="mailto:sweetdairy@example.com">sweetdairy@example.com</a></li>
-        <li><strong>Phone:</strong> <a href="tel:+19125550123">(912) 555-0123</a></li>
-        <li><strong>Address:</strong> 1234 Farm Road, McDonough, GA 30253</li>
-      </ul>
+  <main id="main">
+
+    <!-- ============ PAGE BANNER ============ -->
+    <section class="page-hero hero-contact">
+      <div class="hero-content">
+        <span class="eyebrow">Contact</span>
+        <h1>We'd love to hear from you</h1>
+        <p>Questions, wholesale orders, or just saying hello — all welcome.</p>
+      </div>
     </section>
 
-    <section>
-      <h2>Send Us a Message</h2>
-      <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
+    <!-- ============ CONTACT CARDS ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="grid-3">
+          <div class="feature contact-card reveal">
+            <div class="feature-icon">
+              <!-- Envelope icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"/>
+                <path d="M3 7l9 6 9-6"/>
+              </svg>
+            </div>
+            <h2>Email Us</h2>
+            <p><a href="mailto:sweetdairy@example.com">sweetdairy@example.com</a></p>
+          </div>
+          <div class="feature contact-card reveal">
+            <div class="feature-icon">
+              <!-- Phone icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>
+              </svg>
+            </div>
+            <h2>Call Us</h2>
+            <p><a href="tel:+19125550123">(912) 555-0123</a></p>
+          </div>
+          <div class="feature contact-card reveal">
+            <div class="feature-icon">
+              <!-- Map pin icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/>
+                <circle cx="12" cy="10" r="2.5"/>
+              </svg>
+            </div>
+            <h2>Visit Us</h2>
+            <p>1234 Farm Road<br>McDonough, GA 30253</p>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- ============ MESSAGE FORM + MAP ============ -->
+    <section class="section section-tint">
+      <div class="container">
+        <div class="grid-2">
+          <div class="reveal">
+            <span class="eyebrow">Send Us a Message</span>
+            <h2 class="section-title">Drop us a line</h2>
+            <div class="form-card">
+              <form id="contact-form">
+                <div class="form-row">
+                  <div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" autocomplete="name" required>
+                  </div>
+                  <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required>
+                  </div>
+                </div>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+
+                <p style="margin-top: 1.5rem;">
+                  <button class="btn btn-primary" type="submit">Send Message</button>
+                </p>
+                <p class="form-note">
+                  Submitting opens your email app with the message ready to send.
+                </p>
+              </form>
+            </div>
+          </div>
+          <div class="reveal">
+            <span class="eyebrow">Find the Farm</span>
+            <h2 class="section-title">Out in McDonough</h2>
+            <!-- Embedded Google Map centered on McDonough, GA -->
+            <iframe class="map-frame"
+              src="https://www.google.com/maps?q=McDonough,+GA&output=embed"
+              title="Map of McDonough, Georgia"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+            <p class="form-note">
+              Our self-service farm shop is open for pickup at your convenience —
+              payment by cash, check, or Zelle on the honor system.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <!-- <footer> = bottom of the page. Contact info, copyright, etc. -->
-    <p>&copy; 2026 Sweet Dairy Family Farm. McDonough, GA.</p>
-    <p>Contact: sweetdairy@example.com</p>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-name">Sweet Dairy<small>Family Farm</small></span>
+          <p>
+            Free-range eggs and fresh milk from our family to yours.
+            Raised with care in McDonough, Georgia.
+          </p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Our Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Get in Touch</h3>
+          <ul>
+            <li><a href="mailto:sweetdairy@example.com">sweetdairy@example.com</a></li>
+            <li><a href="tel:+19125550123">(912) 555-0123</a></li>
+            <li>1234 Farm Road, McDonough, GA 30253</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sweet Dairy Family Farm. McDonough, GA.</p>
+        <p>Photos via <a href="https://commons.wikimedia.org/">Wikimedia Commons</a> &mdash; credits in the README.</p>
+      </div>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>

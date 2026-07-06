@@ -1,82 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Products Page - Sweet Dairy Family Farm</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free-range eggs and fresh cow's milk from Sweet Dairy Family Farm in McDonough, GA. Self-service farm shop and wholesale delivery available.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <title>Our Products — Sweet Dairy Family Farm</title>
 </head>
+
 <body>
-  <header>
-    <h1>Sweet Dairy Family Farm</h1>
-    <p>Free-range eggs and fresh milk from our family to yours</p>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="products.html">Our Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="#f9edf1" stroke="#c87490" stroke-width="2"/>
+          <path d="M24 9c5.5 6.8 9.5 12 9.5 18a9.5 9.5 0 0 1-19 0c0-6 4-11.2 9.5-18z" fill="#c87490"/>
+          <path d="M20 26a4 4 0 0 0 4 4" fill="none" stroke="#fdf8f5" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Sweet Dairy<small>Family Farm</small></span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">&#9776;</button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html" aria-current="page">Our Products</a></li>
+          <li class="nav-cta"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <!-- <main> = the main content of THIS specific page. Only one per page -->
-    
-    <section>
-      <h2>Our Products</h2>
+  <main id="main">
 
-      <section>
-        <h3>Free-Range Eggs</h3>
-        <p>
-          Our hens roam freely on open pasture, producing rich, flavorful eggs with deep golden yolks.
-          No cages, no shortcuts — just happy hens and fresh eggs.
-        </p>
-      </section>
-
-      <section>
-        <h3>Fresh Cow's Milk</h3>
-        <p>
-          Our cows graze on natural grass and are never given artificial hormones.
-          The result is fresh, creamy milk straight from the source.
-        </p>
-      </section>
+    <!-- ============ PAGE BANNER ============ -->
+    <section class="page-hero hero-products">
+      <div class="hero-content">
+        <span class="eyebrow">Our Products</span>
+        <h1>Simple, honest food</h1>
+        <p>Just two products — raised right, gathered fresh, and sold with pride.</p>
+      </div>
     </section>
 
-    <section>
-      <h2>Our Shop</h2>
-      <p>
-        We operate a self-service farm shop where you can pick up our products at your convenience.
-        Payment is on the honor system — simply place your payment in an envelope and drop it into our secure payment box on site.
-        We accept <strong>cash</strong> and <strong>check</strong>.
-      </p>
-      <p>We also accept payment via <strong>Zelle</strong> for your convenience.</p>
+    <!-- ============ THE PRODUCTS ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="grid-2">
+          <article class="card reveal">
+            <img src="images/eggs.jpg" alt="A carton of fresh brown eggs" loading="lazy">
+            <div class="card-body">
+              <h2>Free-Range Eggs</h2>
+              <p>
+                Our hens roam freely on open pasture, producing rich, flavorful
+                eggs with deep golden yolks. No cages, no shortcuts — just happy
+                hens and fresh eggs.
+              </p>
+              <ul class="checklist">
+                <li>Gathered fresh daily</li>
+                <li>Deep golden yolks from pasture foraging</li>
+                <li>Hens raised cage-free, always outdoors</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card reveal">
+            <img src="images/milk.jpg" alt="A glass of fresh milk with oatmeal cookies" loading="lazy">
+            <div class="card-body">
+              <h2>Fresh Cow's Milk</h2>
+              <p>
+                Our cows graze on natural grass and are never given artificial
+                hormones. The result is fresh, creamy milk straight from the
+                source.
+              </p>
+              <ul class="checklist">
+                <li>From grass-grazed cows</li>
+                <li>No artificial hormones, ever</li>
+                <li>Bottled fresh on the farm</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Wholesale</h2>
-      <p>
-        Are you a business interested in carrying our products? We offer wholesale pricing and provide
-        delivery services <strong>biweekly on Wednesdays and Fridays</strong>.
-        Contact us for pricing and availability.
-      </p>
+    <!-- ============ THE FARM SHOP ============ -->
+    <section class="section section-tint">
+      <div class="container split reveal">
+        <img src="images/farmshop.jpg" alt="A roadside honor-system stand with an eggs-for-sale sign" loading="lazy">
+        <div>
+          <span class="eyebrow">Our Shop</span>
+          <h2 class="section-title">Self-service, on the honor system</h2>
+          <p class="section-intro">
+            We operate a self-service farm shop where you can pick up our
+            products at your convenience. Payment is on the honor system —
+            simply place your payment in an envelope and drop it into our
+            secure payment box on site.
+          </p>
+          <p><strong>We accept:</strong></p>
+          <p>
+            <span class="chip">Cash</span>
+            <span class="chip">Check</span>
+            <span class="chip">Zelle</span>
+          </p>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Why Choose Us</h2>
-      <p>
-        Our animals roam freely on our land. No cages, no shortcuts. 
-        When you buy from us, you know exactly where your food comes from 
-        and who raised it.
-      </p>
+    <!-- ============ WHOLESALE ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="center reveal">
+          <span class="eyebrow">For Businesses</span>
+          <h2 class="section-title">Wholesale &amp; delivery</h2>
+        </div>
+        <div class="panel reveal">
+          <h3>Carry our products in your store</h3>
+          <p>
+            Are you a business interested in carrying our products? We offer
+            wholesale pricing and provide delivery services
+            <strong>biweekly on Wednesdays and Fridays</strong>.
+          </p>
+          <p>Contact us for pricing and availability — we'd love to work with you.</p>
+          <p style="margin-top: 1.5rem;">
+            <a class="btn btn-primary" href="contact.html">Ask About Wholesale</a>
+          </p>
+        </div>
+      </div>
     </section>
+
+    <!-- ============ CALL TO ACTION ============ -->
+    <section class="cta-strip">
+      <div class="container reveal">
+        <h2>Taste it for yourself</h2>
+        <p>Swing by the farm shop, or get in touch with any questions.</p>
+        <a class="btn btn-light" href="contact.html">Find the Farm</a>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <!-- <footer> = bottom of the page. Contact info, copyright, etc. -->
-    <p>&copy; 2026 Sweet Dairy Family Farm. McDonough, GA.</p>
-    <p>Contact: sweetdairy@example.com</p>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-name">Sweet Dairy<small>Family Farm</small></span>
+          <p>
+            Free-range eggs and fresh milk from our family to yours.
+            Raised with care in McDonough, Georgia.
+          </p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Our Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Get in Touch</h3>
+          <ul>
+            <li><a href="mailto:sweetdairy@example.com">sweetdairy@example.com</a></li>
+            <li><a href="tel:+19125550123">(912) 555-0123</a></li>
+            <li>1234 Farm Road, McDonough, GA 30253</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sweet Dairy Family Farm. McDonough, GA.</p>
+        <p>Photos via <a href="https://commons.wikimedia.org/">Wikimedia Commons</a> &mdash; credits in the README.</p>
+      </div>
+    </div>
   </footer>
-    
+
+  <script src="script.js"></script>
 </body>
+
 </html>
